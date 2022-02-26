@@ -6,9 +6,10 @@ interface CounterState {
     user: any, 
 }
 
+const profile = localStorage.getItem("profile") 
 const authInitial:CounterState = {
   isAuthenticated: false,
-  user: JSON.parse(localStorage.getItem("profile") || ""),
+  user : profile ? JSON.parse(profile) :  "",
 };
 
 const authSlice = createSlice({
